@@ -22,7 +22,7 @@ header {
 
 header h1 {
     margin: 0;
-    background: url("/image/image1.jpg") no-repeat center center; /* Set the background image */
+    background: url("/image/header_img.jpg") no-repeat center center; /* Set the background image */
     background-size: cover; /* Ensure the entire background area is covered by the image */
     height: 200px; /* Set a fixed height for the header */
     display: flex;
