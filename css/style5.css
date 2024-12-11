@@ -1,0 +1,105 @@
+/* Reset margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    margin: 50px 0;
+}
+
+header h1 {
+    font-size: 36px;
+    color: #2c3e50;
+}
+
+/* Styling for the container that holds the blocks */
+.options-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Styling for each block */
+.option-block {
+    width: 180px;
+    height: 180px;
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option-block:hover {
+    background-color: #e74c3c;
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.5);
+}
+
+/* Text inside each block */
+.option-block p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Styling for the description that appears on hover */
+.option-description {
+    display: none;
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    background-color: #34495e;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show description on hover */
+.option-block:hover .option-description {
+    display: block;
+    opacity: 1;
+}
+
+.option-description a{
+    color: #ecf0f1; 
+    text-decoration: underline;
+}
+
+/* Iframe container */
+.iframe-container {
+    margin-top: 40px; /* Adds space between the blocks and iframe */
+    text-align: center; /* Center-aligns the iframe container */
+}
+
+/* Iframe styling */
+iframe {
+    width: 80%; /* Makes the iframe take up 80% of the container width */
+    height: 500px;
+    border: 2px solid #34495e;
+    border-radius: 10px;
+    background-color: #ecf0f1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin: 0 auto; /* Centers the iframe horizontally */
+}
+
+iframe:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}

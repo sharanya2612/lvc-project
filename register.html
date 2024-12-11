@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Virtual Class - Register</title>
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+
+    <header>
+        <h1>Registration Form</h1>
+    </header>
+
+    <div class="container">
+        <form name="register" method="post" action="#">
+            <div class="form-group">
+                <label for="name"><b>Name:</b></label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email"><b>Email:</b></label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <b>Gender:</b>
+                <div class="gender-options">
+                    <label for="male">Male</label>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="female">Female</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="courses"><b>Select Course:</b></label>
+                <select name="courses" id="courses">
+                    <option>Select Courses</option>
+                    <option value="1">Python</option>
+                    <option value="2">Java</option>
+                    <option value="3">C</option>
+                    <option value="4">C++</option>
+                    <option value="5">PHP</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <b>Your Hobbies:</b>
+                <div class="hobbies-options">
+                    <label for="music">Music</label>
+                    <input type="checkbox" id="music" name="chk1">
+                    <label for="dance">Dance</label>
+                    <input type="checkbox" id="dance" name="chk2">
+                    <label for="drawing">Drawing</label>
+                    <input type="checkbox" id="drawing" name="chk3">
+                    <label for="writing">Writing</label>
+                    <input type="checkbox" id="writing" name="chk4">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="ta1"><b>Remarks:</b></label>
+                <textarea id="ta1" name="ta1" rows="5" cols="25" placeholder="Add your remarks"></textarea>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" name="Submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
