@@ -21,7 +21,7 @@ h2 {
     text-align: center;
 }
 
-table {
+/* table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
@@ -39,7 +39,7 @@ th, td {
 td {
     text-align: center;
     vertical-align: middle;
-}
+} */
 
 /* Center the images inside the div */
 .image-container {
