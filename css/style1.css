@@ -216,49 +216,98 @@ video {
     border-radius: 10px;
 }
 
-/* Footer styling */
+/* Footer Styling */
 footer {
-    background-color: #2c3e50;
+    background-color: #34495e; /* Darker shade for a modern look */
     color: white;
     text-align: center;
-    padding: 15px 0;
-    width: 100%;
-    bottom: 0;
+    padding: 40px 0; /* Added more space for a spacious look */
     position: relative;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
 }
 
 footer p {
-    display: inline-block;
-    margin: 0 15px;
-}
-
-footer p:last-child {
-    display: block;
-    margin-top: 10px;
-}
-
-footer p {
-    font-size: 16px;
+    font-size: 18px; /* Increased font size for better readability */
     color: #bdc3c7;
+    margin: 0;
+    padding: 0 15px;
     transition: color 0.3s ease;
 }
 
+footer p:last-child {
+    margin-top: 15px;
+}
+
 footer a {
-    color: #d9ddd9;
+    color: #ecf0f1;
     text-decoration: none;
     font-size: 1.2em;
-    margin: 0 15px;
-    transition: color 0.3s ease, transform 0.3s ease;
+    margin: 0 20px;
+    transition: color 0.3s ease, transform 0.3s ease, padding-left 0.3s ease; 
 }
 
 footer a:hover {
     color: #e91e63;
-    transform: scale(1.1);
+    transform: translateX(5px); /* Smooth slide effect on hover */
+    padding-left: 10px; /* Adds slight padding on hover */
 }
 
 footer a:focus {
     outline: none;
 }
+
+/* Card Styling */
+.container .col-md-4 .card {
+    border-radius: 10px; /* Rounded corners for a softer look */
+    border: 1px solid #34495e; /* Lighter border for subtle elegance */
+    background-color: #2c3e50;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: transform 0.3s ease-in-out;
+}
+
+.container .col-md-4 .card:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+}
+
+.container .col-md-4 .card .card-body {
+    padding: 25px; /* More padding for spacious content */
+}
+
+.container .col-md-4 .card .card-body .btn {
+    background-color: #1abc9c; /* Soft green background for buttons */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Rounded button edges */
+    font-size: 1.1em;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+}
+
+.container .col-md-4 .card .card-body .btn:hover {
+    background-color: #16a085; /* Darker green when hovering */
+    transform: scale(1.05); /* Slight scaling effect */
+}
+
+.container .col-md-4 .card .card-body .btn:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(22, 160, 133, 0.6); /* Glow effect when focused */
+}
+
+/* Icon styling inside cards */
+.container .col-md-4 .card .card-img-top {
+    padding: 30px 0;
+}
+
+.container .col-md-4 .card .card-img-top i {
+    font-size: 4em; /* Larger icons for better visibility */
+    transition: color 0.3s ease;
+}
+
+.container .col-md-4 .card .card-img-top i:hover {
+    color: #f39c12; /* Change color on hover */
+}
+
 
 /* Responsive design */
 @media screen and (max-width: 768px) {
@@ -288,6 +337,13 @@ footer a:focus {
 
     footer p {
         font-size: 14px; /* Smaller font size for footer text */
+    }
+    .container .col-md-4 {
+        margin-bottom: 20px;
+    }
+
+    footer {
+        padding: 30px 0;
     }
 }
 

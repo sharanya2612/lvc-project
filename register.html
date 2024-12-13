@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Virtual Class - Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style2.css">
 </head>
 <body>
@@ -12,32 +13,34 @@
         <h1>Registration Form</h1>
     </header>
 
-    <div class="container">
+    <div class="container my-5">
         <form name="register" method="post" action="#">
-            <div class="form-group">
-                <label for="name"><b>Name:</b></label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <div class="mb-3">
+                <label for="name" class="form-label"><b>Name:</b></label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
             </div>
 
-            <div class="form-group">
-                <label for="email"><b>Email:</b></label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <div class="mb-3">
+                <label for="email" class="form-label"><b>Email:</b></label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
             </div>
 
-            <div class="form-group">
+            <div class="mb-3">
                 <b>Gender:</b>
-                <div class="gender-options">
-                    <label for="male">Male</label>
-                    <input type="radio" id="male" name="gender" value="male">
-                    <label for="female">Female</label>
-                    <input type="radio" id="female" name="gender" value="female">
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" id="male" name="gender" value="male">
+                    <label class="form-check-label" for="male">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" id="female" name="gender" value="female">
+                    <label class="form-check-label" for="female">Female</label>
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="courses"><b>Select Course:</b></label>
-                <select name="courses" id="courses">
-                    <option>Select Courses</option>
+            <div class="mb-3">
+                <label for="courses" class="form-label"><b>Select Course:</b></label>
+                <select name="courses" id="courses" class="form-select">
+                    <option value="">Select Courses</option>
                     <option value="1">Python</option>
                     <option value="2">Java</option>
                     <option value="3">C</option>
@@ -46,30 +49,38 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="mb-3">
                 <b>Your Hobbies:</b>
-                <div class="hobbies-options">
-                    <label for="music">Music</label>
-                    <input type="checkbox" id="music" name="chk1">
-                    <label for="dance">Dance</label>
-                    <input type="checkbox" id="dance" name="chk2">
-                    <label for="drawing">Drawing</label>
-                    <input type="checkbox" id="drawing" name="chk3">
-                    <label for="writing">Writing</label>
-                    <input type="checkbox" id="writing" name="chk4">
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" id="music" name="chk1">
+                    <label class="form-check-label" for="music">Music</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" id="dance" name="chk2">
+                    <label class="form-check-label" for="dance">Dance</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" id="drawing" name="chk3">
+                    <label class="form-check-label" for="drawing">Drawing</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" id="writing" name="chk4">
+                    <label class="form-check-label" for="writing">Writing</label>
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="ta1"><b>Remarks:</b></label>
-                <textarea id="ta1" name="ta1" rows="5" cols="25" placeholder="Add your remarks"></textarea>
+            <div class="mb-3">
+                <label for="ta1" class="form-label"><b>Remarks:</b></label>
+                <textarea id="ta1" name="ta1" class="form-control" rows="5" placeholder="Add your remarks"></textarea>
             </div>
 
-            <div class="form-group">
-                <input type="submit" name="Submit" value="Submit">
+            <div class="mb-3">
+                <input type="submit" name="Submit" value="Submit" class="btn btn-primary">
             </div>
         </form>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
