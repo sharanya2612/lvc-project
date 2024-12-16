@@ -25,7 +25,7 @@
                 <th>Video</th>
             </tr>
             <tr>
-                <td><a href="#video-frame1">John Doe</a></td>
+                <td><a href="#video-frame1" data-bs-toggle="modal" data-bs-target="#lightboxModal1">John Doe</a></td>
                 <td>CEO</td>
                 <td>
                     <div class="image-container">
@@ -39,12 +39,11 @@
                         <div class="video-message">
                             Click on name to display video
                         </div>
-                        <iframe src="assets/videos/v1.mp4"></iframe>
                     </div>
                 </td>
             </tr>
             <tr>
-                <td><a href="#video-frame2">Jane Smith</a></td>
+                <td><a href="#video-frame2" data-bs-toggle="modal" data-bs-target="#lightboxModal2">Jane Smith</a></td>
                 <td>Project Manager</td>
                 <td>
                     <div class="image-container">
@@ -58,12 +57,11 @@
                         <div class="video-message">
                             Click on name to display video
                         </div>
-                        <iframe src="assets/videos/v2.mp4"></iframe>
                     </div>
                 </td>
             </tr>
             <tr>
-                <td><a href="#video-frame3">Alice Johnson</a></td>
+                <td><a href="#video-frame3" data-bs-toggle="modal" data-bs-target="#lightboxModal3">Alice Johnson</a></td>
                 <td>Developer</td>
                 <td>
                     <div class="image-container">
@@ -77,12 +75,11 @@
                         <div class="video-message">
                             Click on name to display video
                         </div>
-                        <iframe src="assets/videos/v3.mp4"></iframe>
                     </div>
                 </td>
             </tr>
             <tr>
-                <td><a href="#video-frame4">Bob Brown</a></td>
+                <td><a href="#video-frame4" data-bs-toggle="modal" data-bs-target="#lightboxModal4">Bob Brown</a></td>
                 <td>Designer</td>
                 <td>
                     <div class="image-container">
@@ -96,7 +93,6 @@
                         <div class="video-message">
                             Click on name to display video
                         </div>
-                        <iframe src="assets/videos/v4.mp4"></iframe>
                     </div>
                 </td>
             </tr>
@@ -105,6 +101,7 @@
 </main>
 
 <!-- Modals -->
+<!-- Modal for John Doe -->
 <div class="modal fade" id="lightboxModal1" tabindex="-1" aria-labelledby="lightboxModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -113,12 +110,33 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <img src="image/p1.png" class="img-fluid" alt="John Doe's Photo">
+                <!-- Carousel -->
+                <div id="carouselJohnDoe" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- First item (Image) -->
+                        <div class="carousel-item active">
+                            <img src="image/p1.png" class="d-block w-50" alt="John Doe's Photo">
+                        </div>
+                        <!-- Second item (Video) -->
+                        <div class="carousel-item">
+                            <iframe src="assets/videos/v1.mp4" class="d-block w-100" style="height: 200px;" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                    <!-- Carousel controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselJohnDoe" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselJohnDoe" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
+<!--Modal for Jane Smith-->
 <div class="modal fade" id="lightboxModal2" tabindex="-1" aria-labelledby="lightboxModalLabel2" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -127,12 +145,33 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <img src="image/p2.png" class="img-fluid" alt="Jane Smith's Photo">
+                <!-- Carousel -->
+                <div id="carouselJaneSmith" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- First item (Image) -->
+                        <div class="carousel-item active">
+                            <img src="image/p2.png" class="d-block w-50" alt="Jane Smith's Photo">
+                        </div>
+                        <!-- Second item (Video) -->
+                        <div class="carousel-item">
+                            <iframe src="assets/videos/v2.mp4" class="d-block w-100" style="height: 200px;" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                    <!-- Carousel controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselJaneSmith" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselJaneSmith" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
+<!-- Modal for Alice Johnson -->
 <div class="modal fade" id="lightboxModal3" tabindex="-1" aria-labelledby="lightboxModalLabel3" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -141,12 +180,34 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <img src="image/p3.png" class="img-fluid" alt="Alice Johnson's Photo">
+                <!-- Carousel -->
+                <div id="carouselAliceJohnson" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- First item (Image) -->
+                        <div class="carousel-item active">
+                            <img src="image/p3.png" class="d-block w-50" alt="Alice Johnson's Photo">
+                        </div>
+                        <!-- Second item (Video) -->
+                        <div class="carousel-item">
+                            <iframe src="assets/videos/v3.mp4" class="d-block w-100" style="height: 200px;" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                    <!-- Carousel controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselAliceJohnson" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselAliceJohnson" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Modal for Bob Brown -->
 <div class="modal fade" id="lightboxModal4" tabindex="-1" aria-labelledby="lightboxModalLabel4" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -155,7 +216,28 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <img src="image/p4.png" class="img-fluid" alt="Bob Brown's Photo">
+                <!-- Carousel -->
+                <div id="carouselBobBrown" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- First item (Image) -->
+                        <div class="carousel-item active">
+                            <img src="image/p4.png" class="d-block w-50" alt="Bob Brown's Photo">
+                        </div>
+                        <!-- Second item (Video) -->
+                        <div class="carousel-item">
+                            <iframe src="assets/videos/v4.mp4" class="d-block w-100" style="height: 200px;" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                    <!-- Carousel controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselBobBrown" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselBobBrown" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>

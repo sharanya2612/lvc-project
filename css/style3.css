@@ -59,6 +59,12 @@ td {
     transform: scale(1.05); /* Slightly increases the size of the image */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Increases the shadow when hovered */
 }
+.modal-body{
+    background-color: black;
+}
+.carousel-item img{
+    padding-left: 40px;
+}
 
 /* Video container style */
 .video-message {
