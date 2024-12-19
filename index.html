@@ -12,7 +12,8 @@
 <body>
 
 <header>
-    <div id="carouselExample" class="carousel slide">
+    <div class="row">
+    <div id="carouselExample" class="carousel slide" data-bs-interval="3000">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <h1 id="h1">Live Virtual Class</h1>
@@ -33,7 +34,9 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+      </div>
     <nav>
+        <div class="row">
         <ul>
             <li><a href="about.html" target="frm1"><i class="fas fa-home"></i> Home</a></li>
             <li class="nav-item dropdown">
@@ -42,19 +45,19 @@
                     <li class="submenu submenu-md dropend">
                         <a class="dropdown-item dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="event.stopPropagation();">MEAN Stack</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item">MongoDB</a></li>
-                            <li><a class="dropdown-item">Express</a></li>
-                            <li><a class="dropdown-item">Angular</a></li>
-                            <li><a class="dropdown-item">NodeJS</a></li>   
+                            <li><a class="dropdown-item"  href="mongodb.html" target="frm1">MongoDB</a></li>
+                            <li><a class="dropdown-item" href="express.html" target="frm1">Express</a></li>
+                            <li><a class="dropdown-item" href="angular.html" target="frm1">Angular</a></li>
+                            <li><a class="dropdown-item" href="nodejs.html" target="frm1">NodeJS</a></li>   
                         </ul>
                     </li>
                     <li class="submenu submenu-md dropend">
                         <a class="dropdown-item dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="event.stopPropagation();">MERN Stack</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item">MongoDB</a></li>
-                            <li><a class="dropdown-item">Express</a></li>
-                            <li><a class="dropdown-item">React</a></li>
-                            <li><a class="dropdown-item">NodeJS</a></li>   
+                            <li><a class="dropdown-item" href="mongodb.html" target="frm1">MongoDB</a></li>
+                            <li><a class="dropdown-item" href="express.html" target="frm1">Express</a></li>
+                            <li><a class="dropdown-item" href="reactjs.html" target="frm1">React</a></li>
+                            <li><a class="dropdown-item" href="nodejs.html" target="frm1">NodeJS</a></li>   
                         </ul>
                     </li>
                     <li><a class="dropdown-item" href="genai.html" target="frm1">Gen AI</a></li>
@@ -66,10 +69,11 @@
             <li><a href="help.html" target="frm1"><i class="fas fa-question-circle"></i> Help</a></li>
             <li><a href="contact.html" target="frm1"><i class="fas fa-envelope"></i> Contact Us</a></li>
         </ul>
+    </div>
     </nav>
 </header>
-
 <main>
+    <div class="row">
     <section>
         <article>
             <h2><b>Welcome to LVC !!!</b></h2>
@@ -78,8 +82,8 @@
             <iframe name="frm1" src="about.html"></iframe>
         </article>
     </section>
+    </div>
 </main>
-
 <footer>
     <div class="container py-4">
         <h5>Most Important Courses for the Professional:</h5><br>
@@ -128,6 +132,11 @@
     <br>
     <p>Website Designed & Developed By: Sharanya</p>
 </footer>
-
+<script>
+    var myCarousel = new bootstrap.Carousel(document.getElementById('carouselExample'), {
+        interval: 3000,  // 3 seconds
+        ride: 'carousel'
+    });
+</script>
 </body>
 </html>

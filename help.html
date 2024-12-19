@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Virtual Class</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/style8.css">
 </head>
 <body>
@@ -20,6 +22,7 @@
         <li><a href="contact.html">Contact Us</a></li>
     </ul>
 </nav>
+
 <main>
     <section id="home">
         <h2>Welcome to the Live Virtual Class</h2>
@@ -36,10 +39,71 @@
         </ul>
     </section>
 
+    <!-- Help Section with Accordion for FAQs -->
     <section id="support">
         <h2>Need Support?</h2>
         <p>If you're facing any issues, our support team is just a click away. You can reach out to us through chat, email, or phone.</p>
+
+        <!-- Accordion for Help Section -->
+        <div class="accordion" id="helpAccordion">
+            <!-- First Accordion Item -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        How do I join a live class?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#helpAccordion">
+                    <div class="accordion-body">
+                        To join a live class, simply log in to your account, navigate to the "Live Classes" section, and click on the "Join" button next to the class you want to attend. Make sure your device has a stable internet connection.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Accordion Item -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        What do I do if my microphone is not working during class?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#helpAccordion">
+                    <div class="accordion-body">
+                        If your microphone isn't working, first check that it is not muted in your browser or operating system settings. Ensure the correct microphone is selected in the settings of the virtual class platform. If the issue persists, try restarting the platform or your device.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Accordion Item -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        How can I access class recordings?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#helpAccordion">
+                    <div class="accordion-body">
+                        After each live class, the recording will be available in the "Class Recordings" section of the platform. You can access the recording by clicking on the class you want to watch and clicking "View Recording".
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fourth Accordion Item -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Can I ask questions during the class?
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#helpAccordion">
+                    <div class="accordion-body">
+                        Yes, you can ask questions during the class using the chat feature. Your instructor will address questions either during the class or at designated Q&A times.
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </main>
+
 </body>
 </html>

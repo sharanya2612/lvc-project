@@ -7,6 +7,28 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/style3.css">
+    <script>
+        // Function to filter table rows based on designation
+        function filterTable() {
+            var input = document.getElementById("designationFilter");
+            var filter = input.value.toLowerCase();
+            var table = document.getElementById("teamTable");
+            var tr = table.getElementsByTagName("tr");
+
+            // Loop through all rows (except for the header row) and hide those that don't match the filter
+            for (var i = 1; i < tr.length; i++) {
+                var td = tr[i].getElementsByTagName("td")[1]; // Get the second cell (Designation)
+                if (td) {
+                    var txtValue = td.textContent || td.innerText;
+                    if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -17,89 +39,99 @@
 <main>
     <section>
         <h2>Our Team</h2>
-        <table class="table table-bordered table-striped text-center">
-            <tr>
-                <th>Name</th>
-                <th>Designation</th>
-                <th>Photo</th>
-                <th>Video</th>
-            </tr>
-            <tr>
-                <td><a href="#video-frame1">John Doe</a></td>
-                <td>CEO</td>
-                <td>
-                    <div class="image-container">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal1">
-                            <img src="image/p1.png" alt="John Doe's Photo">
-                        </a>
-                    </div>
-                </td>
-                <td>
-                    <div class="video-container" id="video-frame1">
-                        <div class="video-message">
-                            Click on name to display video
+        
+        <!-- Filter input for Designation -->
+        <div class="mb-3">
+            <input type="text" id="designationFilter" class="form-control" onkeyup="filterTable()" placeholder="Filter by Designation">
+        </div>
+
+        <table class="table table-bordered table-striped text-center" id="teamTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>Photo</th>
+                    <th>Video</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#video-frame1">John Doe</a></td>
+                    <td>CEO</td>
+                    <td>
+                        <div class="image-container">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal1">
+                                <img src="image/p1.png" alt="John Doe's Photo">
+                            </a>
                         </div>
-                        <iframe src="assets/videos/v1.mp4"></iframe>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><a href="#video-frame2">Jane Smith</a></td>
-                <td>Project Manager</td>
-                <td>
-                    <div class="image-container">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal2">
-                            <img src="image/p2.png" alt="Jane Smith's Photo">
-                        </a>
-                    </div>
-                </td>
-                <td>
-                    <div class="video-container" id="video-frame2">
-                        <div class="video-message">
-                            Click on name to display video
+                    </td>
+                    <td>
+                        <div class="video-container" id="video-frame1">
+                            <div class="video-message">
+                                Click on name to display video
+                            </div>
+                            <iframe src="assets/videos/v1.mp4"></iframe>
                         </div>
-                        <iframe src="assets/videos/v2.mp4"></iframe>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><a href="#video-frame3">Alice Johnson</a></td>
-                <td>Developer</td>
-                <td>
-                    <div class="image-container">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal3">
-                            <img src="image/p3.png" alt="Alice Johnson's Photo">
-                        </a>
-                    </div>
-                </td>
-                <td>
-                    <div class="video-container" id="video-frame3">
-                        <div class="video-message">
-                            Click on name to display video
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#video-frame2">Jane Smith</a></td>
+                    <td>Project Manager</td>
+                    <td>
+                        <div class="image-container">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal2">
+                                <img src="image/p2.png" alt="Jane Smith's Photo">
+                            </a>
                         </div>
-                        <iframe src="assets/videos/v3.mp4"></iframe>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><a href="#video-frame4">Bob Brown</a></td>
-                <td>Designer</td>
-                <td>
-                    <div class="image-container">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal4">
-                            <img src="image/p4.png" alt="Bob Brown's Photo">
-                        </a>
-                    </div>
-                </td>
-                <td>
-                    <div class="video-container" id="video-frame4">
-                        <div class="video-message">
-                            Click on name to display video
+                    </td>
+                    <td>
+                        <div class="video-container" id="video-frame2">
+                            <div class="video-message">
+                                Click on name to display video
+                            </div>
+                            <iframe src="assets/videos/v2.mp4"></iframe>
                         </div>
-                        <iframe src="assets/videos/v4.mp4"></iframe>
-                    </div>
-                </td>
-            </tr>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#video-frame3">Alice Johnson</a></td>
+                    <td>Developer</td>
+                    <td>
+                        <div class="image-container">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal3">
+                                <img src="image/p3.png" alt="Alice Johnson's Photo">
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="video-container" id="video-frame3">
+                            <div class="video-message">
+                                Click on name to display video
+                            </div>
+                            <iframe src="assets/videos/v3.mp4"></iframe>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#video-frame4">Bob Brown</a></td>
+                    <td>Designer</td>
+                    <td>
+                        <div class="image-container">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal4">
+                                <img src="image/p4.png" alt="Bob Brown's Photo">
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="video-container" id="video-frame4">
+                            <div class="video-message">
+                                Click on name to display video
+                            </div>
+                            <iframe src="assets/videos/v4.mp4"></iframe>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </section>
 </main>
