@@ -77,7 +77,12 @@ header h1 {
     opacity: 1;
 }
 
-.option-description a{
+a{
+    color: #ecf0f1; 
+    text-decoration: none;
+}
+
+.option-description span{
     color: #ecf0f1; 
     text-decoration: underline;
 }
