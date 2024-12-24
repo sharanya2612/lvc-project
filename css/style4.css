@@ -42,6 +42,10 @@ iframe {
     gap: 15px;
 }
 
+span{
+    color: red;
+}
+
 /* Input and Textarea Styling */
 .contact-form input, .contact-form textarea {
     padding: 10px;

@@ -6,6 +6,47 @@
     <title>Live Virtual Class</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style4.css">
+    <script>
+   
+        function validateForm() {
+            // Get form data
+            var name = document.forms["contact"]["name"].value;
+            var email = document.forms["contact"]["email"].value;
+            var message = document.forms["contact"]["message"].value;
+
+            // Validate Name
+            if (name == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+
+            // Validate Email
+            if (email == "") {
+                alert("Email must be filled out");
+                return false;
+            }
+
+            // Validate Email Format
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+
+            if(message == ""){
+                alert("Message must be filled out");
+                return false;
+            }
+            window.location.href="thanks.html"
+            // showSuccessMessage();
+            // return false; 
+        }
+
+        // function showSuccessMessage() {
+        //     document.getElementById('contactForm').style.display = 'none';
+        //     document.getElementById('successMessage').style.display = 'block';
+        // }
+    </script>
 </head>
 <body>
 
@@ -18,20 +59,22 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.5605750487407!2d74.85202737373001!3d12.87163401706482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35b1c504f06a5%3A0x9720c6a220d4ecd3!2sImpelsys%20Private%20Limited!5e0!3m2!1sen!2sin!4v1733467008923!5m2!1sen!2sin" 
             allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-    
-    <div class="contact-form">
+   
+    <div class="contact-form" id="contactContainer"> 
         <h2>Get in Touch</h2>
-        <form action="#" method="post">
-            <b><label for="name">Full Name:</label></b>
-            <input type="text" id="name" name="name" placeholder="Your name" required>
+        
+        <!-- Contact Form -->
+        <form name="contact" action="thanks.html" method="post" id="contactForm">
+            <b><label for="name">Full Name:<span>*</span></label></b>
+            <input type="text" id="name" name="name" placeholder="Your name">
 
-            <b><label for="email">Email:</label></b>
-            <input type="email" id="email" name="email" placeholder="Your email" required>
+            <b><label for="email">Email:<span>*</span></label></b>
+            <input type="email" id="email" name="email" placeholder="Your email">
 
-            <b><label for="message">Message:</label></b>
-            <textarea id="message" name="message" rows="4" placeholder="Your message" required></textarea>
+            <b><label for="message">Message:<span>*</span></label></b>
+            <textarea id="message" name="message" rows="4" placeholder="Your message"></textarea>
 
-            <button type="submit" data-bs-toggle="tooltip" data-bs-placement="top" title="Submit Form">Send Message</button>
+            <button type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Submit Form" onclick="validateForm()">Send Message</button>
         </form>
     </div>
 </div>

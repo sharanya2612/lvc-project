@@ -47,6 +47,10 @@ header h1 {
     color: #2c3e50; /* Dark color for labels to contrast with background */
 }
 
+span{
+    color: red;
+}
+
 /* Input and Select Box Styling */
 input[type="text"],
 input[type="email"],
