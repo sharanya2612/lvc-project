@@ -54,7 +54,11 @@
     </script>
 </head>
 <body>
-
+    <div class="marquee-container">
+        <div class="marquee-text">
+            Apply Now for Scholarships and Boost Your Learning Journey!<a href="scholarship.html" target="frm1">Click here to know more</a>
+        </div>
+    </div>
     <header>
         <h1>Start your Learning Journey!!</h1>
     </header>
@@ -63,17 +67,17 @@
         <!-- Registration Form -->
         <form name="register" method="post" id="registrationForm" onsubmit="return validateForm()" action="thanksreg.html">
             <div class="mb-3">
-                <label for="name" class="form-label"><b>Name:<span>*</span></b></label>
+                <label for="name" class="form-label"><b>Name:<span> *</span></b></label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" >
             </div>
 
             <div class="mb-3">
-                <label for="email" class="form-label"><b>Email:<span>*</span></b></label>
+                <label for="email" class="form-label"><b>Email:<span> *</span></b></label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
             </div>
 
             <div class="mb-3">
-                <b>Gender:<span>*</span></b>
+                <b>Gender:<span> *</span></b>
                 <div class="form-check form-check-inline">
                     <input type="radio" class="form-check-input" id="male" name="gender" value="male">
                     <label class="form-check-label" for="male">Male</label>
@@ -85,7 +89,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="courses" class="form-label"><b>Select Course:<span>*</span></b></label>
+                <label for="courses" class="form-label"><b>Select Course:<span> *</span></b></label>
                 <select name="courses" id="courses" class="form-select">
                     <option value="">-- Select Courses --</option>
                     <option value="1">Python</option>

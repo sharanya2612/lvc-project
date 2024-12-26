@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+marquee {
+    background-color: #2980b9;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    width: 97%;
+    margin-bottom: 20px;
+}
+
+/* Center the form in the middle of the page */
+.form-container {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    font-size: 16px;
+    color: #333;
+}
+span{
+    color: red;
+}
+
+input[type="text"], input[type="number"] {
+    width: 97%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+select{
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 16px; 
+}
+select:focus{
+    border-color: #66afe9;
+    outline: none;
+}
+
+input[type="button"] {
+    background-color: #2980b9; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+}
+
+input[type="button"]:hover {
+    background-color: #3498db;
+}
+
+input:focus {
+    border-color: #66afe9;
+    outline: none;
+}
+
+.result {
+    display: none;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+}
