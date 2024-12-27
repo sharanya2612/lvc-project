@@ -3,11 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Scholarship Application</title>
     <link rel="stylesheet" href="css/style9.css">
     <script>
+        // Function to close the modal and show the content
+        function closeModal() {
+            document.getElementById("termsModal").style.display = "none";
+            document.getElementById("scholarshipContent").style.display = "block"; // Show scholarship content
+        }
+
+        // Show the modal on page load
+        window.onload = function() {
+            document.getElementById("termsModal").style.display = "block"; // Show the modal
+            document.getElementById("scholarshipContent").style.display = "none"; // Hide the scholarship content initially
+        }
+
+        // Function to validate the scholarship form (optional)
         function jfun1() {
-            // Get the form values
             var name = document.forms["form1"]["name"].value;
             var maths = parseInt(document.forms["form1"]["maths"].value);
             var english = parseInt(document.forms["form1"]["english"].value);
@@ -15,95 +27,112 @@
             var computer = parseInt(document.forms["form1"]["computer"].value);
             var tenthperc = document.forms["form1"]["tenthperc"].value;
 
-            if(name === ""){
-                alert("Enter the name of the student")
+            if (name === "") {
+                alert("Enter the name of the student");
                 return;
             }
 
-            // Check if any marks field is empty
+            // Check for valid marks input
             if (isNaN(maths) || isNaN(english) || isNaN(science) || isNaN(computer)) {
                 alert("Please enter valid marks for all subjects.");
                 return;
             }
 
-            if(maths<0 || maths>100  || english<0 || english>100 || science<0 || science>100 || computer<0 || computer>100){
-                alert("Marks of each subject should not be less than zero and more than 100")
-                return
-            }
-
-            // Check for 10th percentage selection
-            if (tenthperc === "") {
-                alert("Please select your 10th percentage.");
+            if (maths < 0 || maths > 100 || english < 0 || english > 100 || science < 0 || science > 100 || computer < 0 || computer > 100) {
+                alert("Marks of each subject should not be less than zero and more than 100");
                 return;
             }
 
-            // Calculate the average of 12th marks
+            // Scholarship calculation logic (existing)
             var total12thMarks = maths + english + science + computer;
             var avg12thMarks = total12thMarks / 4;
-
-            // Calculate the scholarship percentage
             var scholarship = 0;
-            var resultMessage = "Dear " + name + ", ";
-            var totalfees=100000
-            if (avg12thMarks > 90 && (tenthperc === "1")) {
-                scholarship = 50; // 50% scholarship
-                totalfees=totalfees*0.5
-            } else if ((avg12thMarks >= 80 && avg12thMarks <= 89 && (tenthperc === "2")) || (avg12thMarks >= 80 && avg12thMarks <= 89 && (tenthperc === "1")) || (avg12thMarks >= 90 && (tenthperc === "2"))) {
-                scholarship = 25; // 25% scholarship
-                totalfees=totalfees*0.25
-            } 
+            var totalfees = 100000;
 
-            // Display the result
-            
-            var resultDiv = document.getElementById('result');
-            if (scholarship > 0) {
-                alert("Dear " + name + ", You are eligible for a " + scholarship + "% scholarship!")
-                resultMessage += "Your total fees will be Rs."+totalfees+"/-";
-            } else {
-                alert("Dear " + name + ", Sorry, you are not eligible for a scholarship.")
-                resultMessage+="Your total fees will be Rs."+totalfees+"/-";
+            // Adjust scholarship calculation based on criteria
+            if (avg12thMarks > 90 && (tenthperc === "1")) {
+                scholarship = 50;
+                totalfees = totalfees * 0.5;
+            } else if ((avg12thMarks >= 80 && avg12thMarks <= 89 && (tenthperc === "2")) || (avg12thMarks >= 80 && avg12thMarks <= 89 && (tenthperc === "1")) || (avg12thMarks >= 90 && (tenthperc === "2"))) {
+                scholarship = 25;
+                totalfees = totalfees * 0.25;
             }
 
+            // Display result message
+            var resultMessage = "Dear " + name + ", ";
+            if (scholarship > 0) {
+                alert("You are eligible for a " + scholarship + "% scholarship!");
+                resultMessage += "Your total fees will be Rs." + totalfees + "/-";
+            } else {
+                alert("Sorry, you are not eligible for a scholarship.");
+                resultMessage += "Your total fees will be Rs." + totalfees + "/-";
+            }
+
+            var resultDiv = document.getElementById('result');
             resultDiv.textContent = resultMessage;
             resultDiv.style.display = "block";
         }
     </script>
 </head>
 <body>
-    <div class="form-container">
-        <marquee>The fees of LVC courses is Rs.100000/-</marquee>
-        <h1>Check Your Scholarship!!</h1>
-        <form name="form1" method="post" action="jtest.html">
-            <label for="name"><b>Name:<span> *</span></b></label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
-            
-            <h3>Enter 12th marks</h3>
-
-            <label for="maths"><b>Maths:<span> *</span></b></label>
-            <input type="number" id="maths" name="maths" placeholder="Enter maths marks">
-
-            <label for="english"><b>English:<span> *</span></b></label>
-            <input type="number" id="english" name="english" placeholder="Enter english marks">
-
-            <label for="science"><b>Science:<span> *</span></b></label>
-            <input type="number" id="science" name="science" placeholder="Enter science marks">
-
-            <label for="computer"><b>Computer:<span> *</span></b></label>
-            <input type="number" id="computer" name="computer" placeholder="Enter computer marks"><br><br>
-
-            <label for="tenthperc" class="form-label"><b>Tenth Percentage:<span> *</span></b></label>
-            <select name="tenthperc" id="tenthperc" class="form-select" onchange="jfun1()">
-                <option value="">-- Select Percentage --</option>
-                <option value="1">90-100</option>
-                <option value="2">89-80</option>
-                <option value="3">0-80</option>
-            </select>
-            <br><br>
-
-            <input type="button" value="Calculate" onclick="jfun1()">
-        </form>
-        <!-- Hidden result div -->
-        <div id="result" class="result"></div>
+    <!-- Modal for terms and condition input -->
+    <div class="modal" id="termsModal" style="display: none;">
+        <div class="modal-header">
+            <h5>These are the Terms and Conditions of receiving scholarship</h5>
+        </div>
+        <div class="modal-body">
+            <p>By using this website, you agree to the following terms and conditions:</p>
+            <ul>
+                <li>You are eligible for 50% scholarship if you have scored more than 90% in both 10th and 12th.</li>
+                <li>You are eligible for 25% scholarship if you have scored more than 80% and less than 90% in 10th or 12th.</li>
+                <li>You are not eligible for scholarship if above two conditions are not satisfied.</li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="close-btn" onclick="closeModal()">OK</button>
+        </div>
     </div>
+
+    <!-- Scholarship content hidden initially -->
+    <div id="scholarshipContent" style="display: none;">
+        <div class="form-container">
+            <marquee>The fees of LVC courses is Rs.100000/-</marquee>
+            <h1>Check Your Scholarship!!</h1>
+            <form name="form1" method="post" action="jtest.html">
+                <label for="name"><b>Name:<span> *</span></b></label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+
+                <h3>Enter 12th marks</h3>
+
+                <label for="maths"><b>Maths:<span> *</span></b></label>
+                <input type="number" id="maths" name="maths" placeholder="Enter maths marks">
+
+                <label for="english"><b>English:<span> *</span></b></label>
+                <input type="number" id="english" name="english" placeholder="Enter english marks">
+
+                <label for="science"><b>Science:<span> *</span></b></label>
+                <input type="number" id="science" name="science" placeholder="Enter science marks">
+
+                <label for="computer"><b>Computer:<span> *</span></b></label>
+                <input type="number" id="computer" name="computer" placeholder="Enter computer marks"><br><br>
+
+                <label for="tenthperc" class="form-label"><b>Tenth Percentage:<span> *</span></b></label>
+                <select name="tenthperc" id="tenthperc" class="form-select" onchange="jfun1()">
+                    <option value="">-- Select Percentage --</option>
+                    <option value="1">90-100</option>
+                    <option value="2">89-80</option>
+                    <option value="3">0-80</option>
+                </select>
+                <br><br>
+
+                <input type="button" value="Calculate" onclick="jfun1()">
+            </form>
+            <!-- Hidden result div -->
+            <div id="result" class="result"></div>
+        </div>
+    </div>
+
+    <!-- Modal Backdrop -->
+    <div class="modal-backdrop" id="modalBackdrop" style="display: none;"></div>
 </body>
 </html>

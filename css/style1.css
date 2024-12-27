@@ -272,6 +272,97 @@ footer a:focus {
     outline: none;
 }
 
+ /* Modal backdrop */
+ .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+}
+
+/* Smaller and responsive modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+    height: 400px;
+    text-align: center;
+    box-sizing: border-box;
+    border: 2px solid #2980b9; /* Add border for the modal */
+    opacity: 0;
+    animation: modalEntry 0.5s ease-out forwards; /* Animate entry */
+}
+
+/* Modal header */
+.modal-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+/* Modal body input field */
+.modal-body input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: 2px solid #2980b9;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.modal-body input:focus {
+    border-color: #1abc9c; /* Highlight border on focus */
+}
+
+/* Modal footer */
+.modal-footer {
+    padding-top: 10px;
+}
+
+.modal-footer button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.modal-footer button:hover {
+    background-color: #1abc9c;
+    transform: scale(1.05);
+}
+
+.modal-footer button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(26, 188, 156, 0.6); /* Glow effect */
+}
+
+/* Animation for modal appearance */
+@keyframes modalEntry {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
 /* Card Styling */
 .container .col-md-4 .card {
     border-radius: 10px; /* Rounded corners for a softer look */
