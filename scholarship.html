@@ -18,6 +18,39 @@
             document.getElementById("scholarshipContent").style.display = "none"; // Hide the scholarship content initially
         }
 
+        // Function to check empty name
+        function validateName(inputElement) {
+            var value = inputElement.value;
+            var errorMessageElement = document.getElementById(inputElement.id + "-error");
+
+            // Clear previous error message (if any)
+            errorMessageElement.textContent = '';
+
+            if (value==="") {
+                errorMessageElement.textContent = "Name is required."; // Display error message
+                inputElement.focus();  // Focus back to the input element
+                return false;
+            }
+           
+            return true;
+        }
+
+        // Function to validate input and check if marks are in the range of 0-100
+        function validateMarks(inputElement) {
+            var value = parseInt(inputElement.value);
+            var errorMessageElement = document.getElementById(inputElement.id + "-error");
+
+            // Clear previous error message (if any)
+            errorMessageElement.textContent = '';
+
+            if (isNaN(value) || value < 0 || value > 100) {
+                errorMessageElement.textContent = "Marks should be between 0 and 100."; // Display error message
+                inputElement.focus();  // Focus back to the input element
+                return false;
+            }
+           
+            return true;
+        }
         // Function to validate the scholarship form (optional)
         function jfun1() {
             var name = document.forms["form1"]["name"].value;
@@ -35,11 +68,6 @@
             // Check for valid marks input
             if (isNaN(maths) || isNaN(english) || isNaN(science) || isNaN(computer)) {
                 alert("Please enter valid marks for all subjects.");
-                return;
-            }
-
-            if (maths < 0 || maths > 100 || english < 0 || english > 100 || science < 0 || science > 100 || computer < 0 || computer > 100) {
-                alert("Marks of each subject should not be less than zero and more than 100");
                 return;
             }
 
@@ -100,21 +128,26 @@
             <h1>Check Your Scholarship!!</h1>
             <form name="form1" method="post" action="jtest.html">
                 <label for="name"><b>Name:<span> *</span></b></label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+                <input type="text" id="name" name="name" placeholder="Enter your name" onblur="validateName(this)">
+                <span id="name-error" class="error-message"></span><br>
 
                 <h3>Enter 12th marks</h3>
 
                 <label for="maths"><b>Maths:<span> *</span></b></label>
-                <input type="number" id="maths" name="maths" placeholder="Enter maths marks">
+                <input type="number" id="maths" name="maths" placeholder="Enter maths marks" onblur="validateMarks(this)">
+                <span id="maths-error" class="error-message"></span><br>
 
                 <label for="english"><b>English:<span> *</span></b></label>
-                <input type="number" id="english" name="english" placeholder="Enter english marks">
+                <input type="number" id="english" name="english" placeholder="Enter english marks" onblur="validateMarks(this)">
+                <span id="english-error" class="error-message"></span><br>
 
                 <label for="science"><b>Science:<span> *</span></b></label>
-                <input type="number" id="science" name="science" placeholder="Enter science marks">
+                <input type="number" id="science" name="science" placeholder="Enter science marks" onblur="validateMarks(this)">
+                <span id="science-error" class="error-message"></span><br>
 
                 <label for="computer"><b>Computer:<span> *</span></b></label>
-                <input type="number" id="computer" name="computer" placeholder="Enter computer marks"><br><br>
+                <input type="number" id="computer" name="computer" placeholder="Enter computer marks" onblur="validateMarks(this)"><br><br>
+                <span id="computer-error" class="error-message"></span><br>
 
                 <label for="tenthperc" class="form-label"><b>Tenth Percentage:<span> *</span></b></label>
                 <select name="tenthperc" id="tenthperc" class="form-select" onchange="jfun1()">

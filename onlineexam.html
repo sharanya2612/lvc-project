@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Exam Form</title>
+    <link rel="stylesheet" href="css/style10.css">
+</head>
+<body>
+
+    <h1>Online Exam Form</h1><br>
+    <form id="examForm" onsubmit="return calculateResults(event)">
+        <div class="question-container">
+            <h3>Q1: HTML is used to create:</h3>
+            <input type="radio" id="q1a" name="q1" value="a">
+            <label for="q1a">a) Static Page</label><br>
+            <input type="radio" id="q1b" name="q1" value="b">
+            <label for="q1b">b) Dynamic Page</label><br>
+            <input type="radio" id="q1c" name="q1" value="c">
+            <label for="q1c">c) Both</label><br>
+            <input type="radio" id="q1d" name="q1" value="d">
+            <label for="q1d">d) None</label><br>
+            <span id="q1-error" class="error"></span>
+        </div>
+
+        <div class="question-container">
+            <h3>Q2: JS is used to create:</h3>
+            <input type="radio" id="q2a" name="q2" value="a">
+            <label for="q2a">a) Static Page</label><br>
+            <input type="radio" id="q2b" name="q2" value="b">
+            <label for="q2b">b) Dynamic Page</label><br>
+            <input type="radio" id="q2c" name="q2" value="c">
+            <label for="q2c">c) Both</label><br>
+            <input type="radio" id="q2d" name="q2" value="d">
+            <label for="q2d">d) None</label><br>
+            <span id="q2-error" class="error"></span>
+        </div>
+
+        <button type="submit" id="submitButton">Show Results</button>
+    </form>
+
+    <div id="result" class="result"></div>
+
+    <button id="resetButton" class="hidden" onclick="resetTest()">Take Test Again</button>
+
+    <script>
+        function calculateResults(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Correct answers
+            var correctAnswers = {
+                q1: 'a', // Correct answer for Q1
+                q2: 'b'  // Correct answer for Q2
+            };
+
+            var score = 0;
+
+            // Check Q1
+            var q1Answer = document.querySelector('input[name="q1"]:checked');
+            if (!q1Answer) {
+                document.getElementById("q1-error").textContent = "Please select an answer for Q1.";
+            } else {
+                document.getElementById("q1-error").textContent = "";
+                if (q1Answer.value === correctAnswers.q1) {
+                    score += 2;
+                    document.getElementById("q1" + q1Answer.value).classList.add("correct-answer");
+                    document.querySelector('label[for="q1' + q1Answer.value + '"]').classList.add("correct-answer");
+                } else {
+                    document.getElementById("q1" + q1Answer.value).classList.add("incorrect-answer");
+                    document.querySelector('label[for="q1' + q1Answer.value + '"]').classList.add("incorrect-answer");
+                    document.getElementById("q1" + correctAnswers.q1).classList.add("correct-answer");
+                    document.querySelector('label[for="q1' + correctAnswers.q1 + '"]').classList.add("correct-answer");
+                }
+            }
+
+            // Check Q2
+            var q2Answer = document.querySelector('input[name="q2"]:checked');
+            if (!q2Answer) {
+                document.getElementById("q2-error").textContent = "Please select an answer for Q2.";
+            } else {
+                document.getElementById("q2-error").textContent = "";
+                if (q2Answer.value === correctAnswers.q2) {
+                    score += 2;
+                    document.getElementById("q2" + q2Answer.value).classList.add("correct-answer");
+                    document.querySelector('label[for="q2' + q2Answer.value + '"]').classList.add("correct-answer");
+                } else {
+                    document.getElementById("q2" + q2Answer.value).classList.add("incorrect-answer");
+                    document.querySelector('label[for="q2' + q2Answer.value + '"]').classList.add("incorrect-answer");
+                    document.getElementById("q2" + correctAnswers.q2).classList.add("correct-answer");
+                    document.querySelector('label[for="q2' + correctAnswers.q2 + '"]').classList.add("correct-answer");
+                }
+            }
+
+            // Disable the form after submission
+            disableForm();
+
+            // Display result
+            var resultMessage = "You scored " + score + " out of 4.";
+            document.getElementById("result").textContent = resultMessage;
+
+            // Show "Take Test Again" button
+            document.getElementById("resetButton").classList.remove("hidden");
+        }
+
+        function disableForm() {
+            var form = document.getElementById("examForm");
+            var submitButton = document.getElementById("submitButton");
+            var inputs = form.querySelectorAll("input");
+            var errorMessages = form.querySelectorAll(".error");
+
+            // Disable inputs
+            inputs.forEach(input => {
+                input.disabled = true;
+            });
+
+            // Disable submit button
+            submitButton.disabled = true;
+
+            // Hide error messages
+            errorMessages.forEach(message => {
+                message.style.display = 'none';
+            });
+        }
+
+        function resetTest() {
+            var form = document.getElementById("examForm");
+            var inputs = form.querySelectorAll("input[type='radio']");
+            var errorMessages = form.querySelectorAll(".error");
+            var resultMessage = document.getElementById("result");
+
+            // Reset inputs
+            inputs.forEach(input => {
+                input.checked = false;
+                input.disabled = false;
+            });
+
+            var labels = form.querySelectorAll("label");
+            labels.forEach(label => {
+                label.classList.remove("correct-answer", "incorrect-answer");
+            });
+
+            // Hide result message
+            resultMessage.textContent = "";
+
+            // Reset error messages
+            errorMessages.forEach(message => {
+                message.textContent = "";
+            });
+
+            // Enable submit button
+            document.getElementById("submitButton").disabled = false;
+
+            // Hide "Take Test Again" button
+            document.getElementById("resetButton").classList.add("hidden");
+        }
+    </script>
+
+</body>
+</html>
