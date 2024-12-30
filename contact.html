@@ -8,44 +8,80 @@
     <link rel="stylesheet" href="css/style4.css">
     <script>
    
-        function validateForm() {
+   function validateForm(event) {
             // Get form data
             var name = document.forms["contact"]["name"].value;
             var email = document.forms["contact"]["email"].value;
             var message = document.forms["contact"]["message"].value;
 
+            // Prevent form submission to handle validation
+            event.preventDefault();
+            
+            // Reset previous errors before validation
+            resetForm();
+
+            var isValid = true;
+
             // Validate Name
             if (name == "") {
-                alert("Name must be filled out");
-                return false;
+                showError("name", "Please enter your name.");
+                isValid = false;
             }
 
             // Validate Email
             if (email == "") {
-                alert("Email must be filled out");
-                return false;
-            }
+                showError("email", "Please enter your email.");
+                isValid = false;
+            }else{
 
             // Validate Email Format
             var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
             if (!emailPattern.test(email)) {
-                alert("Please enter a valid email address");
-                return false;
+                showError("email", "Please enter a valid email id.");
+                isValid = false;
             }
-
-            if(message == ""){
-                alert("Message must be filled out");
-                return false;
-            }
-            window.location.href="thanks.html"
-            // showSuccessMessage();
-            // return false; 
         }
 
-        // function showSuccessMessage() {
-        //     document.getElementById('contactForm').style.display = 'none';
-        //     document.getElementById('successMessage').style.display = 'block';
-        // }
+            // Validate Message
+            if (message == "") {
+                showError("message", "Please enter a message.");
+                isValid = false;
+            }
+
+            // If all validations are successful, redirect to thanks page
+            if (isValid) {
+                window.location.href = "thanks.html";
+            }
+        }
+
+         // Function to reset errors and remove red borders
+        function resetForm() {
+            // Select form elements individually (input, textarea)
+            var formElements = document.querySelectorAll("#contactForm input, #contactForm textarea");
+
+            // Clear error messages
+            var errorMessages = document.querySelectorAll(".error-message");
+            errorMessages.forEach(function (msg) {
+                msg.textContent = ""; // Clear error messages
+            });
+
+            // Remove red border from form elements
+            formElements.forEach(function (element) {
+                element.style.border = ''; // Remove red border
+            });
+        }
+
+        // Function to show error messages
+        function showError(field, message) {
+            var errorMessageElement = document.getElementById(field + "-error");
+            var inputElement = document.forms["contact"][field];
+
+            // Add a red border to the input field
+            inputElement.style.border = "2px solid red";
+
+            // Display the error message
+            errorMessageElement.textContent = message;
+        }
     </script>
 </head>
 <body>
@@ -66,15 +102,18 @@
         <!-- Contact Form -->
         <form name="contact" action="thanks.html" method="post" id="contactForm">
             <b><label for="name">Full Name:<span> *</span></label></b>
-            <input type="text" id="name" name="name" placeholder="Your name">
+            <input type="text" id="name" name="name" placeholder="Your name" onblur="validateForm(event)">
+            <div id="name-error" class="error-message"></div>
 
             <b><label for="email">Email:<span> *</span></label></b>
-            <input type="email" id="email" name="email" placeholder="Your email">
+            <input type="email" id="email" name="email" placeholder="Your email" onblur="validateForm(event)">
+            <div id="email-error" class="error-message"></div>
 
             <b><label for="message">Message:<span> *</span></label></b>
             <textarea id="message" name="message" rows="4" placeholder="Your message"></textarea>
+            <div id="message-error" class="error-message"></div>
 
-            <button type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Submit Form" onclick="validateForm()">Send Message</button>
+            <button type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Submit Form" onclick="validateForm(event)">Send Message</button>
         </form>
     </div>
 </div>

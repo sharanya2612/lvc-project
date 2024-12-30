@@ -28,6 +28,11 @@ header h1 {
     height: 450px;
 }
 
+.error-message {
+    color: red;
+    font-size: 0.875em;
+}
+
 /* Google Map iframe Styling */
 iframe {
     width: 100%;

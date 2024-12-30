@@ -174,22 +174,6 @@
         </div>
     </div>
     <hr>
-    <br>
-     <!-- Dropdown for website references -->
-     <div class="row">
-        <div class="col-md-12">
-            <label for="websiteSelect" class="form-label">Explore Related Websites:</label>
-            <select id="websiteSelect" class="form-select form-select-sm" onchange="navigateToWebsite(this)">
-                <option value="">--Select Website--</option>
-                <option value="https://www.google.com" target="_blank">Google</option>
-                <option value="https://www.edureka.co" target="_blank">Edureka</option>
-                <option value="https://www.geeksforgeeks.org" target="_blank">Geeks For Geeks</option>
-                <option value="https://www.w3schools.com" target="_blank">W3schools</option>
-            </select>
-        </div>
-    </div>
-    <br>
-    <hr>
     <!-- Contact Info Section -->
 
      <div class="row my-4">
@@ -223,6 +207,21 @@
         </div>
     </div>
     <hr>
+    <!-- Dropdown for website references -->
+    <div class="row">
+        <div class="col-md-12">
+            <label for="websiteSelect" class="form-label">Explore Related Websites:</label>
+            <select id="websiteSelect" class="form-select form-select-sm" onchange="navigateToWebsite(this)">
+                <option value="">--Select Website--</option>
+                <option value="https://www.google.com" target="_blank">Google</option>
+                <option value="https://www.edureka.co" target="_blank">Edureka</option>
+                <option value="https://www.geeksforgeeks.org" target="_blank">Geeks For Geeks</option>
+                <option value="https://www.w3schools.com" target="_blank">W3schools</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <br>
     <p>&copy; <span id="currentYear"></span> Live Virtual Class. All Rights Reserved.<br>Designed & Developed by Sharanya</p>
     <script>
         document.getElementById("currentYear").textContent = new Date().getFullYear();

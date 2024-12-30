@@ -158,3 +158,8 @@ textarea {
     margin-right: 10px;
     color: #2c3e50; /* Dark color for options */
 }
+
+.error-message {
+    color: red;
+    font-size: 0.875em;
+}
