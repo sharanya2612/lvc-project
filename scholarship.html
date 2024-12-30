@@ -26,12 +26,16 @@
             // Clear previous error message (if any)
             errorMessageElement.textContent = '';
 
-            if (value==="") {
+            // Remove red border initially
+            inputElement.style.border = '';
+
+            if (value === "") {
                 errorMessageElement.textContent = "Name is required."; // Display error message
+                inputElement.style.border = "2px solid red"; // Add red border
                 inputElement.focus();  // Focus back to the input element
                 return false;
             }
-           
+
             return true;
         }
 
@@ -43,14 +47,40 @@
             // Clear previous error message (if any)
             errorMessageElement.textContent = '';
 
+            // Remove red border initially
+            inputElement.style.border = '';
+
             if (isNaN(value) || value < 0 || value > 100) {
                 errorMessageElement.textContent = "Marks should be between 0 and 100."; // Display error message
+                inputElement.style.border = "2px solid red"; // Add red border
                 inputElement.focus();  // Focus back to the input element
                 return false;
             }
-           
+
             return true;
         }
+
+        // Function to validate tenth percentage selection
+        function validateTenthPercentage(inputElement) {
+            var value = inputElement.value;
+            var errorMessageElement = document.getElementById(inputElement.id + "-error");
+
+            // Clear previous error message (if any)
+            errorMessageElement.textContent = '';
+
+            // Remove red border initially
+            inputElement.style.border = '';
+
+            if (value === "") {
+                errorMessageElement.textContent = "Please select your 10th percentage range."; // Display error message
+                inputElement.style.border = "2px solid red"; // Add red border
+                inputElement.focus();  // Focus back to the input element
+                return false;
+            }
+
+            return true;
+        }
+
         // Function to validate the scholarship form (optional)
         function jfun1() {
             var name = document.forms["form1"]["name"].value;
@@ -60,15 +90,23 @@
             var computer = parseInt(document.forms["form1"]["computer"].value);
             var tenthperc = document.forms["form1"]["tenthperc"].value;
 
-            if (name === "") {
-                alert("Enter the name of the student");
-                return;
-            }
+            // Reset the borders for all fields
+            resetBorders();
+
+            validateName(document.forms["form1"]["name"]);
 
             // Check for valid marks input
             if (isNaN(maths) || isNaN(english) || isNaN(science) || isNaN(computer)) {
                 alert("Please enter valid marks for all subjects.");
+                if (isNaN(maths)) document.getElementById("maths").style.border = "2px solid red";
+                if (isNaN(english)) document.getElementById("english").style.border = "2px solid red";
+                if (isNaN(science)) document.getElementById("science").style.border = "2px solid red";
+                if (isNaN(computer)) document.getElementById("computer").style.border = "2px solid red";
                 return;
+            }
+
+            if (!validateTenthPercentage(document.forms["form1"]["tenthperc"])) {
+                return; // Stop further processing if validation fails
             }
 
             // Scholarship calculation logic (existing)
@@ -100,6 +138,15 @@
             resultDiv.textContent = resultMessage;
             resultDiv.style.display = "block";
         }
+
+        // Helper function to reset the borders of all input fields
+        function resetBorders() {
+            var inputs = document.querySelectorAll('input[type="text"], input[type="number"], select');
+            inputs.forEach(function(input) {
+                input.style.border = ''; // Reset border to default
+            });
+        }
+
     </script>
 </head>
 <body>
@@ -150,12 +197,13 @@
                 <span id="computer-error" class="error-message"></span><br>
 
                 <label for="tenthperc" class="form-label"><b>Tenth Percentage:<span> *</span></b></label>
-                <select name="tenthperc" id="tenthperc" class="form-select" onchange="jfun1()">
+                <select name="tenthperc" id="tenthperc" class="form-select" onchange="validateTenthPercentage(this)">
                     <option value="">-- Select Percentage --</option>
                     <option value="1">90-100</option>
                     <option value="2">89-80</option>
                     <option value="3">0-80</option>
                 </select>
+                <span id="tenthperc-error" class="error-message"></span>
                 <br><br>
 
                 <input type="button" value="Calculate" onclick="jfun1()">
