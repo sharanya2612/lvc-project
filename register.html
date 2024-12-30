@@ -26,7 +26,8 @@
             var email = document.forms["register"]["email"].value;
             var gender = document.forms["register"]["gender"].value;
             var course = document.forms["register"]["courses"].value;
-
+            var hobbiesChecked = false;
+            var checkboxes = document.querySelectorAll('input[name^="chk"]:checked');
             let valid = true;
 
             // Clear previous errors and borders
@@ -36,18 +37,21 @@
             if (name == "") {
                 showError("name", "Name must be filled out");
                 valid = false;
+                return false;
             }
 
             // Validate Email
             if (email == "") {
                 showError("email", "Email must be filled out");
                 valid = false;
+                return false;
             } else {
                 // Validate Email Format using regex
                 var emailPattern = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
                 if (!email.match(emailPattern)) {
                     showError("email", "Please enter a valid email address");
                     valid = false;
+                    return false;
                 }
             }
 
@@ -55,12 +59,19 @@
             if (gender == "") {
                 showError("gender", "Please select your gender");
                 valid = false;
+                return false;
             }
 
             // Validate Course Selection
             if (course == "") {
                 showError("courses", "Please select a course");
                 valid = false;
+                return false;
+            }
+
+            if (checkboxes.length === 0) {
+                alert("Please select at least one hobby");
+                return false;
             }
 
             // If everything is valid, submit the form (otherwise, prevent submission)
@@ -109,24 +120,24 @@
         <form name="register" method="post" id="registrationForm" onsubmit="validateForm(event)" action="thanksreg.html">
             <div class="mb-3">
                 <label for="name" class="form-label"><b>Name:<span> *</span></b></label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" onblur="validateForm(event)">
                 <div id="name-error" class="error-message"></div>
             </div>
 
             <div class="mb-3">
                 <label for="email" class="form-label"><b>Email:<span> *</span></b></label>
-                <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email">
+                <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" onblur="validateForm(event)">
                 <div id="email-error" class="error-message"></div>
             </div>
 
             <div class="mb-3">
                 <b>Gender:<span> *</span></b>
                 <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" id="male" name="gender" value="male">
+                    <input type="radio" class="form-check-input" id="male" name="gender" value="male" onblur="validateForm(event)">
                     <label class="form-check-label" for="male">Male</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" id="female" name="gender" value="female">
+                    <input type="radio" class="form-check-input" id="female" name="gender" value="female" onblur="validateForm(event)">
                     <label class="form-check-label" for="female">Female</label>
                 </div>
                 <div id="gender-error" class="error-message"></div>
@@ -148,19 +159,19 @@
             <div class="mb-3">
                 <b>Your Hobbies:</b>
                 <div class="form-check form-check-inline">
-                    <input type="checkbox" class="form-check-input" id="music" name="chk1">
+                    <input type="checkbox" class="form-check-input" id="music" name="chk1" onblur="validateForm(event)">
                     <label class="form-check-label" for="music">Music</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input type="checkbox" class="form-check-input" id="dance" name="chk2">
+                    <input type="checkbox" class="form-check-input" id="dance" name="chk2" onblur="validateForm(event)">
                     <label class="form-check-label" for="dance">Dance</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input type="checkbox" class="form-check-input" id="drawing" name="chk3">
+                    <input type="checkbox" class="form-check-input" id="drawing" name="chk3" onblur="validateForm(event)">
                     <label class="form-check-label" for="drawing">Drawing</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input type="checkbox" class="form-check-input" id="writing" name="chk4">
+                    <input type="checkbox" class="form-check-input" id="writing" name="chk4" onblur="validateForm(event)">
                     <label class="form-check-label" for="writing">Writing</label>
                 </div>
             </div>
