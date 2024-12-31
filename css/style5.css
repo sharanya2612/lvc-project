@@ -96,7 +96,7 @@ a{
 /* Iframe styling */
 iframe {
     width: 80%; /* Makes the iframe take up 80% of the container width */
-    height: 800px;
+    height: 500px;
     border: 2px solid #34495e;
     border-radius: 10px;
     background-color: #ecf0f1;
