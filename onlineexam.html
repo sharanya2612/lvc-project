@@ -36,6 +36,45 @@
             <span id="q2-error" class="error"></span>
         </div>
 
+        <div class="question-container">
+            <h3>Q3: CSS is used to style:</h3>
+            <input type="radio" id="q3a" name="q3" value="a">
+            <label for="q3a">a) Content</label><br>
+            <input type="radio" id="q3b" name="q3" value="b">
+            <label for="q3b">b) Structure</label><br>
+            <input type="radio" id="q3c" name="q3" value="c">
+            <label for="q3c">c) Layout and Appearance</label><br>
+            <input type="radio" id="q3d" name="q3" value="d">
+            <label for="q3d">d) None</label><br>
+            <span id="q3-error" class="error"></span>
+        </div>
+
+        <div class="question-container">
+            <h3>Q4: Which HTML element is used to define an internal style sheet?</h3>
+            <input type="radio" id="q4a" name="q4" value="a">
+            <label for="q4a">a) &lt;style&gt;</label><br>
+            <input type="radio" id="q4b" name="q4" value="b">
+            <label for="q4b">b) &lt;script&gt;</label><br>
+            <input type="radio" id="q4c" name="q4" value="c">
+            <label for="q4c">c) &lt;css&gt;</label><br>
+            <input type="radio" id="q4d" name="q4" value="d">
+            <label for="q4d">d) &lt;link&gt;</label><br>
+            <span id="q4-error" class="error"></span>
+        </div>
+        
+        <div class="question-container">
+            <h3>Q5: Which of the following is a JavaScript data type?</h3>
+            <input type="radio" id="q5a" name="q5" value="a">
+            <label for="q5a">a) Integer</label><br>
+            <input type="radio" id="q5b" name="q5" value="b">
+            <label for="q5b">b) String</label><br>
+            <input type="radio" id="q5c" name="q5" value="c">
+            <label for="q5c">c) Boolean</label><br>
+            <input type="radio" id="q5d" name="q5" value="d">
+            <label for="q5d">d) All of the above</label><br>
+            <span id="q5-error" class="error"></span>
+        </div>
+
         <button type="submit" id="submitButton">Show Results</button>
     </form>
 
@@ -50,7 +89,10 @@
             // Correct answers
             var correctAnswers = {
                 q1: 'a', // Correct answer for Q1
-                q2: 'b'  // Correct answer for Q2
+                q2: 'b', // Correct answer for Q2
+                q3: 'c', // Correct answer for Q3
+                q4: 'a', // Correct answer for Q4
+                q5: 'd'  // Correct answer for Q5
             };
 
             var score = 0;
@@ -91,11 +133,65 @@
                 }
             }
 
+            // Check Q3
+            var q3Answer = document.querySelector('input[name="q3"]:checked');
+            if (!q3Answer) {
+                document.getElementById("q3-error").textContent = "Please select an answer for Q3.";
+            } else {
+                document.getElementById("q3-error").textContent = "";
+                if (q3Answer.value === correctAnswers.q3) {
+                    score += 2;
+                    document.getElementById("q3" + q3Answer.value).classList.add("correct-answer");
+                    document.querySelector('label[for="q3' + q3Answer.value + '"]').classList.add("correct-answer");
+                } else {
+                    document.getElementById("q3" + q3Answer.value).classList.add("incorrect-answer");
+                    document.querySelector('label[for="q3' + q3Answer.value + '"]').classList.add("incorrect-answer");
+                    document.getElementById("q3" + correctAnswers.q3).classList.add("correct-answer");
+                    document.querySelector('label[for="q3' + correctAnswers.q3 + '"]').classList.add("correct-answer");
+                }
+            }
+
+            // Check Q4
+            var q4Answer = document.querySelector('input[name="q4"]:checked');
+            if (!q4Answer) {
+                document.getElementById("q4-error").textContent = "Please select an answer for Q4.";
+            } else {
+                document.getElementById("q4-error").textContent = "";
+                if (q4Answer.value === correctAnswers.q4) {
+                    score += 2;
+                    document.getElementById("q4" + q4Answer.value).classList.add("correct-answer");
+                    document.querySelector('label[for="q4' + q4Answer.value + '"]').classList.add("correct-answer");
+                } else {
+                    document.getElementById("q4" + q4Answer.value).classList.add("incorrect-answer");
+                    document.querySelector('label[for="q4' + q4Answer.value + '"]').classList.add("incorrect-answer");
+                    document.getElementById("q4" + correctAnswers.q4).classList.add("correct-answer");
+                    document.querySelector('label[for="q4' + correctAnswers.q4 + '"]').classList.add("correct-answer");
+                }
+            }
+
+            // Check Q5
+            var q5Answer = document.querySelector('input[name="q5"]:checked');
+            if (!q5Answer) {
+                document.getElementById("q5-error").textContent = "Please select an answer for Q5.";
+            } else {
+                document.getElementById("q5-error").textContent = "";
+                if (q5Answer.value === correctAnswers.q5) {
+                    score += 2;
+                    document.getElementById("q5" + q5Answer.value).classList.add("correct-answer");
+                    document.querySelector('label[for="q5' + q5Answer.value + '"]').classList.add("correct-answer");
+                } else {
+                    document.getElementById("q5" + q5Answer.value).classList.add("incorrect-answer");
+                    document.querySelector('label[for="q5' + q5Answer.value + '"]').classList.add("incorrect-answer");
+                    document.getElementById("q5" + correctAnswers.q5).classList.add("correct-answer");
+                    document.querySelector('label[for="q5' + correctAnswers.q5 + '"]').classList.add("correct-answer");
+                }
+            }
+
             // Disable the form after submission
             disableForm();
 
             // Display result
-            var resultMessage = "You scored " + score + " out of 4.";
+            var resultMessage = "You scored " + score + " out of 10.";
             document.getElementById("result").textContent = resultMessage;
 
             // Show "Take Test Again" button
